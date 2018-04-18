@@ -80,7 +80,7 @@
     FB.api('/me/feed', function(response) {
       console.log('Successful login for: ' + response);
       document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.data[0]+ '!';
+        'Thanks for logging in, ' + response.data[0].message+ '!';
 
         document.getElementById('status2').innerHTML =
         'Thanks for logging in, ' + response+ '!';
