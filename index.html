@@ -101,13 +101,13 @@
 </div>
 <div id="status2">
 </div>
-<button ng-click="getMyLastName()">dhsadiauhdas</button>
+<button ng-click="alert();">dhsadiauhdas</button>
 {{last_name}}
 
 <script>
   var app = angular.module('myApp', []);
 
-app.factory('facebookService', function($q) {
+app.service('facebookService', function($q) {
     return {
         getMyLastName: function() {
             var deferred = $q.defer();
