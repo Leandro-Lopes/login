@@ -101,14 +101,15 @@
 </div>
 <div id="status2">
 </div>
-<button ng-click="alert();">dhsadiauhdas</button>
+<button ng-click="getMyLastName()">dhsadiauhdas</button>
 {{last_name}}
 
 <script>
-  var app = angular.module('myApp', []);
+ var app = angular.module("myApp",[]);
 
 app.service('facebookService', function($q) {
-    return {
+  this.last_name = [];
+  return {
         getMyLastName: function() {
             var deferred = $q.defer();
             FB.api('/me', {
@@ -124,8 +125,9 @@ app.service('facebookService', function($q) {
         }
     }
 });
-app.controller('myCtrl', ['$scope', 'facebookService', function($scope, facebookService) {
-  $scope.getMyLastName = function() {
+
+app.controller('MyController', ['$scope', 'facebookService', function($scope, facebookService) {
+ $scope.getMyLastName = function() {
    facebookService.getMyLastName() 
      .then(function(response) {
        $scope.last_name = response.last_name;
@@ -133,7 +135,6 @@ app.controller('myCtrl', ['$scope', 'facebookService', function($scope, facebook
    );
 };
 }]);
-});
 </script>
 </body>
 </html>
