@@ -4,8 +4,17 @@
 <head>
 <title>Facebook Login JavaScript Example</title>
 <meta charset="UTF-8">
+<script src="angular.min"></script>
+
+<script>
+  var app = angular.module('myApp', []);
+
+app.controller('myCtrl', function($scope) {
+    $scope.carname = "Volvo";
+});
+</script>
 </head>
-<body>
+<body ng-controller="myCtrl">
 <script>
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
@@ -98,6 +107,6 @@
 </div>
 <div id="status2">
 </div>
-
+{{carname}}
 </body>
 </html>
