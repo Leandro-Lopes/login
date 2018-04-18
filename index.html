@@ -101,19 +101,20 @@
 </div>
 <div id="status2">
 </div>
-{{response}}
+{{datas}}
 
 <script>
   var app = angular.module('myApp', [])
 
 app.controller('myCtrl', function($scope) {
-
+  $scope.datas;
    function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me/feed', function(response) {
       console.log('Successful login for: ' + response);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response+ '!';
+        $scope.datas = response;
 
         document.getElementById('status2').innerHTML =
         'Thanks for logging in, ' + response+ '!';
