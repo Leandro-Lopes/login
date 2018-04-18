@@ -80,7 +80,7 @@
         'Thanks for logging in, ' + response.name + '!';
 
         document.getElementById('status2').innerHTML =
-        'Thanks for logging in, ' + response + '!';
+        'Thanks for logging in, ' + response.json+ '!';
     });
   }
 </script>
@@ -91,7 +91,7 @@
   the FB.login() function when clicked.
 -->
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+<fb:login-button scope="public_profile,email,photos" onlogin="checkLoginState();">
 </fb:login-button>
 
 <div id="status">
