@@ -27,14 +27,16 @@
 </div>
 <div id="status2">
 </div>
-{{myJSON}}
+<button ng-Click="func()"></button>
 
 <script>
   var app = angular.module("myApp",[]);
 
 app.controller('myCtrl', ['$scope', function($scope) {
 
-
+$scope.func = function(){
+  alert();
+}
 function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
