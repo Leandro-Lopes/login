@@ -35,7 +35,7 @@
 app.controller('myCtrl', ['$scope', function($scope) {
 
 
-function statusChangeCallback(response) {
+$scope.statusChangeCallback = function(response) {
     console.log('statusChangeCallback');
     console.log(response);
     // The response object is returned with a status field that lets the
@@ -61,7 +61,7 @@ function statusChangeCallback(response) {
     });
   }
 
-  window.fbAsyncInit = function() {
+  $scope.window.fbAsyncInit = function() {
     FB.init({
       appId      : '161216987907167',
       cookie     : true,  // enable cookies to allow the server to access 
