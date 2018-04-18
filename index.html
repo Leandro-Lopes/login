@@ -103,7 +103,7 @@ function statusChangeCallback(response) {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me/feed', function(response) {
       console.log('Successful login for: ' + response);
-      var myJSON = JSON.stringify(response);
+      var myJSON = JSON.stringify(resdponse);
        $scope.dados = myJSON;
       document.getElementById('status').innerHTML =myJSON;
 
