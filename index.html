@@ -27,7 +27,7 @@
 </div>
 <div id="status2">
 </div>
-{{dados}}
+{{myJSON}}
 
 <script>
   var app = angular.module("myApp",[]);
@@ -103,9 +103,9 @@ function statusChangeCallback(response) {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me/feed', function(response) {
       console.log('Successful login for: ' + response);
-      var myJSON = JSON.stringify(resdponse);
-       $scope.dados = myJSON;
-      document.getElementById('status').innerHTML =myJSON;
+      var myJSON = JSON.stringify(response);
+      
+      document.getElementById('status').innerHTML =myJdSON;
 
         
 
