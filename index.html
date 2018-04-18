@@ -4,17 +4,11 @@
 <head>
 <title>Facebook Login JavaScript Example</title>
 <meta charset="UTF-8">
-<script src="angular.min"></script>
+<script src="angular.min.js"></script>
 
-<script>
-  var app = angular.module('myApp', []);
 
-app.controller('myCtrl', function($scope) {
-    $scope.carname = "Volvo";
-});
-</script>
 </head>
-<body ng-controller="myCtrl">
+<body ng-app="myApp" ng-controller="myCtrl">
 <script>
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
@@ -108,5 +102,35 @@ app.controller('myCtrl', function($scope) {
 <div id="status2">
 </div>
 {{carname}}
+
+<script>
+  var app = angular.module('myApp', []).factory('facebookService', function($q) {
+    return {
+        getMyLastName: function() {
+            var deferred = $q.defer();
+            FB.api('/me', {
+                fields: 'last_name'
+            }, function(response) {
+                if (!response || response.error) {
+                    deferred.reject('Error occured');
+                } else {
+                    deferred.resolve(response);
+                }
+            });
+            return deferred.promise;
+        }
+    }
+});
+
+app.controller('myCtrl', function($scope) {
+    $scope.getMyLastName = function() {
+   facebookService.getMyLastName() 
+     .then(function(response) {
+       $scope.last_name = response.last_name;
+     }
+   );
+};
+});
+</script>
 </body>
 </html>
