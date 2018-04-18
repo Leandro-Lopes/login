@@ -75,17 +75,17 @@
 
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
-  // function testAPI() {
-  //   console.log('Welcome!  Fetching your information.... ');
-  //   FB.api('/me/feed', function(response) {
-  //     console.log('Successful login for: ' + response);
-  //     document.getElementById('status').innerHTML =
-  //       'Thanks for logging in, ' + response+ '!';
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me/feed', function(response) {
+      console.log('Successful login for: ' + response);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.data[0]+ '!';
 
-  //       document.getElementById('status2').innerHTML =
-  //       'Thanks for logging in, ' + response+ '!';
-  //   });
-  // }
+        document.getElementById('status2').innerHTML =
+        'Thanks for logging in, ' + response+ '!';
+    });
+  }
 </script>
 
 <!--
@@ -101,40 +101,8 @@
 </div>
 <div id="status2">
 </div>
-<button ng-click="getMyLastName()">dhsadiauhdas</button>
 {{last_name}}
 
-<script>
- var app = angular.module("myApp",[]);
 
-app.service('facebookService', function($q) {
-  this.last_name = [];
-  return {
-        getMyLastName: function() {
-            var deferred = $q.defer();
-            FB.api('/me', {
-                fields: 'last_name'
-            }, function(response) {
-                if (!response || response.error) {
-                    deferred.reject('Error occured');
-                } else {
-                    deferred.resolve(response);
-                }
-            });
-            return deferred.promise;
-        }
-    }
-});
-
-app.controller('MyController', ['$scope', 'facebookService', function($scope, facebookService) {
- $scope.getMyLastName = function() {
-   facebookService.getMyLastName() 
-     .then(function(response) {
-       $scope.last_name = response.last_name;
-     }
-   );
-};
-}]);
-</script>
 </body>
 </html>
