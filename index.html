@@ -106,7 +106,7 @@ $scope.myJSON=[];
       myJSON = JSON.stringify(response);
       
       for(var x in myJSON){
-      document.getElementById('status').innerHTML =x['data']['message']
+      document.getElementById('status').innerHTML =x['data'].message;
       }
 
         
