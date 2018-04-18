@@ -103,9 +103,9 @@ $scope.myJSON=[];
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me/feed', function(response) {
       console.log('Successful login for: ' + response);
-      myJSON = JSON.stringify(response);
       
-      for(var x in myJSON){
+      
+      for(var x in response){
       document.getElementById('status').innerHTML =x['message'];
       }
 
