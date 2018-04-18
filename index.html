@@ -35,7 +35,7 @@
 app.controller('myCtrl', ['$scope', function($scope) {
 
 
-$scope.statusChangeCallback = function(response) {
+function statusChangeCallback(response) {
     console.log('statusChangeCallback');
     console.log(response);
     // The response object is returned with a status field that lets the
@@ -99,7 +99,7 @@ $scope.statusChangeCallback = function(response) {
 
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
-  function testAPI() {
+  $scope.testAPI = function() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me/feed', function(response) {
       console.log('Successful login for: ' + response);
