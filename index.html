@@ -101,35 +101,25 @@
 </div>
 <div id="status2">
 </div>
-{{last_name}}
+{{response}}
 
 <script>
-  var app = angular.module('myApp', []).factory('facebookService', function($q) {
-    return {
-        getMyLastName: function() {
-            var deferred = $q.defer();
-            FB.api('/me', {
-                fields: 'last_name'
-            }, function(response) {
-                if (!response || response.error) {
-                    deferred.reject('Error occured');
-                } else {
-                    deferred.resolve(response);
-                }
-            });
-            return deferred.promise;
-        }
-    }
-});
+  var app = angular.module('myApp', [])
 
-app.controller('myCtrl', function($scope,$facebookService) {
-    $scope.getMyLastName = function() {
-   facebookService.getMyLastName() 
-     .then(function(response) {
-       $scope.last_name = response.last_name;
-     }
-   );
-};
+app.controller('myCtrl', function($scope) {
+
+   function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me/feed', function(response) {
+      console.log('Successful login for: ' + response);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response+ '!';
+
+        document.getElementById('status2').innerHTML =
+        'Thanks for logging in, ' + response+ '!';
+    });
+  }
+    
 });
 </script>
 </body>
