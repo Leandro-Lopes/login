@@ -61,7 +61,7 @@ $scope.statusChangeCallback = function(response) {
     });
   }
 
-  $scope.window.fbAsyncInit = function() {
+  window.fbAsyncInit = function() {
     FB.init({
       appId      : '161216987907167',
       cookie     : true,  // enable cookies to allow the server to access 
