@@ -99,11 +99,11 @@ function statusChangeCallback(response) {
 
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
-  function testAPI() {
+  function testAPI($scope) {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me/feed', function(response) {
       console.log('Successful login for: ' + response);
-      var myJSON = JSON.stringify(response);
+      $scope.myJSON = JSON.stringify(response);
       
       document.getElementById('status').innerHTML =myJdSON;
 
