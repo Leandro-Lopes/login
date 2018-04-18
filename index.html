@@ -101,26 +101,38 @@
 </div>
 <div id="status2">
 </div>
-{{datas}}
+<button ng-click="getMyLastName()">dhsadiauhdas</button>
+{{last_name}}
 
 <script>
   var app = angular.module('myApp', []);
 
-app.controller('myCtrl', function($scope) {
-  $scope.datas;
-   function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me/feed', function(response) {
-      console.log('Successful login for: ' + response);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response+ '!';
-        $scope.datas = response;
-
-        document.getElementById('status2').innerHTML =
-        'Thanks for logging in, ' + response+ '!';
-    });
-  }
-    
+app.factory('facebookService', function($q) {
+    return {
+        getMyLastName: function() {
+            var deferred = $q.defer();
+            FB.api('/me', {
+                fields: 'last_name'
+            }, function(response) {
+                if (!response || response.error) {
+                    deferred.reject('Error occured');
+                } else {
+                    deferred.resolve(response);
+                }
+            });
+            return deferred.promise;
+        }
+    }
+});
+app.controller('myCtrl', ['$scope', 'facebookService', function($scope, facebookService) {
+  $scope.getMyLastName = function() {
+   facebookService.getMyLastName() 
+     .then(function(response) {
+       $scope.last_name = response.last_name;
+     }
+   );
+};
+}]);
 });
 </script>
 </body>
