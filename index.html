@@ -104,10 +104,10 @@ function statusChangeCallback(response) {
     FB.api('/me/feed', function(response) {
       console.log('Successful login for: ' + response);
       var myJSON = JSON.stringify(response);
-
+       $scope.dados = myJSON;
       document.getElementById('status').innerHTML =myJSON;
 
-        $scope.dados = response;
+        
 
         document.getElementById('status2').innerHTML =
         'Thanks for logging in, ' + JSON.stringify(response)+ '!';
