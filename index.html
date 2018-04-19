@@ -28,8 +28,9 @@
 <div id="status2">
 </div>
 <button ng-Click="func()">click</button>
-
-test: {{varr}}
+<ul>
+  <li ng-repeat="vare in varr">{{vare}}</li>
+</ul>
 
 <script>
   var app = angular.module("myApp",[]);
