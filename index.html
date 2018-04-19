@@ -33,12 +33,12 @@
   var app = angular.module("myApp",[]);
 
 app.controller('myCtrl', ['$scope', function($scope) {
-
+$scope.varr = [];
 $scope.func = function(){
       console.log('Welcome!  Fetching your information.... ');
     FB.api('/me/accounts', function(response) {
       console.log('Successful login for: ' + response);
-          
+      console.log('Successful login for: ' + response.data);
     });
 }
 function statusChangeCallback(response) {
@@ -50,7 +50,7 @@ function statusChangeCallback(response) {
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
-      testAPI();
+     
     } else {
       // The person is not logged into your app or we are unable to tell.
       document.getElementById('status').innerHTML = 'Please log ' +
