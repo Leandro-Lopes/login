@@ -55,7 +55,7 @@ function statusChangeCallback(response) {
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
 
-      func();
+      $scope.func();
      
     } else {
       // The person is not logged into your app or we are unable to tell.
@@ -99,7 +99,7 @@ function statusChangeCallback(response) {
     });
 
   };
-$scope.myJSON=[];
+
   // Load the SDK asynchronously
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
