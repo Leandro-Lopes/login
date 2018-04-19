@@ -35,12 +35,13 @@ test: {{varr}}
   var app = angular.module("myApp",[]);
 
 app.controller('myCtrl', ['$scope', function($scope) {
-$scope.varr = ["a"];
+
 $scope.func = function(){
       console.log('Welcome!  Fetching your information.... ');
     FB.api('/me/accounts', function(response) {
       console.log('Successful login for: ' + response);
       $scope.varr = response;
+
       console.log('Successful login for: ' + $scope.varr);
     });
 }
