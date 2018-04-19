@@ -35,7 +35,11 @@
 app.controller('myCtrl', ['$scope', function($scope) {
 
 $scope.func = function(){
-  alert();
+      console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me/accounts', function(response) {
+      console.log('Successful login for: ' + response);
+          
+    });
 }
 function statusChangeCallback(response) {
     console.log('statusChangeCallback');
@@ -101,21 +105,21 @@ $scope.myJSON=[];
 
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
-  function testAPI($scope) {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me/feed', function(response) {
-      console.log('Successful login for: ' + response);
+  // function testAPI() {
+  //   console.log('Welcome!  Fetching your information.... ');
+  //   FB.api('/me/feed', function(response) {
+  //     console.log('Successful login for: ' + response);
       
       
-      for(var x in response){
-      document.getElementById('status').innerHTML =x.data.message;
-      }
+  //     for(var x in response){
+  //     document.getElementById('status').innerHTML =x.data.message;
+  //     }
 
         
 
        
-    });
-  }
+  //   });
+  // }
 
   
 }]);
