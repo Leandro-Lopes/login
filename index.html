@@ -40,7 +40,7 @@ app.controller('myCtrl', ['$scope', function($scope) {
 $scope.func = function(){
       console.log('Welcome!  Fetching your information.... ');
     FB.api('/me/accounts', function(response) {
-      console.log('Successful login for: ' + JSON.stringify(response.data));
+      console.log('Successful login for: ' + JSON.stringify(response.data,null,4));
       $scope.dados = response.data;
       
     });
