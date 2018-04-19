@@ -41,7 +41,7 @@ $scope.func = function(){
       console.log('Welcome!  Fetching your information.... ');
     FB.api('/me',{ fields: 'context',access_token : "EAACEdEose0cBAIzYpxlv5M8YxmVrDVqnrH7YXA6DyXJhZCdVpTKOJZCIWf9NIXyVhMbwLdNeSKLqa9nHylGFW7G8K6Mziyn6epZBm2GWdZCCpMPgXFcJuROyqSU0So1ZBJsydhrZBRYJYuN8KObeTdxKyiUV1YPAdCqqZBk1I9ZB1yZCHnxcF8krqRZAqEvF3Pvg8xV2EHoTQrr5n1pw5qSuN1"}, function(response) {
       console.log('Successful login for: ' + JSON.stringify(response));
-      $scope.dados = response;
+      $scope.dados = JSON.stringify(response);
       
     });
 }
