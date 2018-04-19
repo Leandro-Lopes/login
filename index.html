@@ -28,7 +28,9 @@
 <div id="status2">
 </div>
 <button ng-Click="func()">click</button>
-{{varr}}
+<ul>
+  <li ng-repeat="x in dados ">{{x}}</li>
+</ul>
 
 <script>
   var app = angular.module("myApp",[]);
@@ -38,8 +40,8 @@ app.controller('myCtrl', ['$scope', function($scope) {
 $scope.func = function(){
       console.log('Welcome!  Fetching your information.... ');
     FB.api('/me/accounts', function(response) {
-      console.log('Successful login for: ' + JSON.stringify(response));
-      $scope.varr = JSON.stringify(response,null,4);
+      console.log('Successful login for: ' + JSON.stringify(response.data));
+      $scope.dados = JSON.stringify(response,null,4);
       console.log('Successful login for: ' + $scope.varr);
     });
 }
