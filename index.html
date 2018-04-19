@@ -41,7 +41,7 @@ $scope.func = function(){
       console.log('Welcome!  Fetching your information.... ');
     FB.api('/me/accounts', function(response) {
       console.log('Successful login for: ' + JSON.stringify(response.data));
-      $scope.dados = response.data);
+      $scope.dados = response.data;
       console.log('Successful login for: ' + $scope.dados);
     });
 }
