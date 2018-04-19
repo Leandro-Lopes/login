@@ -38,7 +38,8 @@ $scope.func = function(){
       console.log('Welcome!  Fetching your information.... ');
     FB.api('/me/accounts', function(response) {
       console.log('Successful login for: ' + response);
-      console.log('Successful login for: ' + response.data);
+      $scope.varr = response;
+      console.log('Successful login for: ' + $scope.varr);
     });
 }
 function statusChangeCallback(response) {
