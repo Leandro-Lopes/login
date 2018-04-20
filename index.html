@@ -21,8 +21,8 @@
 -->
 
 <ul>
-  <li ng-repeat="d in dados.feed.data">
-    {{d.message}}
+  <li ng-repeat="d in dados.context.mutual_likes.data">
+    {{d.name}}
   </li>
 </ul>
 
@@ -44,7 +44,7 @@ app.controller('myCtrl', ['$scope', function($scope) {
 
 $scope.func = function(){
       console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me',{fields:"feed",access_token : "EAACEdEose0cBAKx8ESYCpWQ0ySu69HSHqHRHyAzKSuKFZCBvtDTTrEYTbH9yUBWBdsaZC6hevFRZB0AxexZAJgRPkPNDLV7lcVYZBqM0SUz0pC8hcuZBiLpQpXtjEjPMESIlYwZCOZBuexj007l1KKlkGv4yZB6LjAyZCVU2dbuh18DvgGkdiADWxSZCOIZBRIEGVXs8gwup8KcjooKYeQZBMOSiZC"}, function(response) {
+    FB.api('/me',{fields:"context",access_token : "EAACEdEose0cBAKx8ESYCpWQ0ySu69HSHqHRHyAzKSuKFZCBvtDTTrEYTbH9yUBWBdsaZC6hevFRZB0AxexZAJgRPkPNDLV7lcVYZBqM0SUz0pC8hcuZBiLpQpXtjEjPMESIlYwZCOZBuexj007l1KKlkGv4yZB6LjAyZCVU2dbuh18DvgGkdiADWxSZCOIZBRIEGVXs8gwup8KcjooKYeQZBMOSiZC"}, function(response) {
       console.log('Successful login for: ' + JSON.stringify(response.data));
       $scope.dados = response;
       
