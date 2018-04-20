@@ -21,8 +21,7 @@
 -->
 
 <ul>
-  <li ng-repeat="d in dados.posts.data.attachments">
-  {{d.data}} 
+  <li ng-repeat="d in dados.posts.data">  {{d.data}} 
    
   </li>
 </ul>
@@ -36,7 +35,7 @@
 </div>
 <button ng-Click="func()">click</button>
 
-{{dados}}
+
 
 <script>
   var app = angular.module("myApp",[]);
