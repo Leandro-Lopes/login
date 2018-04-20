@@ -22,7 +22,8 @@
 
 <ul>
   <li ng-repeat="d in dados.posts.data">
-    <a href="https://www.facebook.com/{{d.id}}">{{d.attachments}}</a>
+    <img src="{{d.attachments.data.media.image.src}}" alt="">
+    {{d.attachments.data.media.image.src}}
   </li>
 </ul>
 
