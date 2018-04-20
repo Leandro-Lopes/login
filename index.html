@@ -44,7 +44,7 @@ app.controller('myCtrl', ['$scope', function($scope) {
 
 $scope.func = function(){
       console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me',{fields:"context",access_token : "EAACEdEose0cBAKx8ESYCpWQ0ySu69HSHqHRHyAzKSuKFZCBvtDTTrEYTbH9yUBWBdsaZC6hevFRZB0AxexZAJgRPkPNDLV7lcVYZBqM0SUz0pC8hcuZBiLpQpXtjEjPMESIlYwZCOZBuexj007l1KKlkGv4yZB6LjAyZCVU2dbuh18DvgGkdiADWxSZCOIZBRIEGVXs8gwup8KcjooKYeQZBMOSiZC"}, function(response) {
+    FB.api('/me',{fields:"context",access_token : "EAACEdEose0cBAEJLNiIZCkWaodcZCugZBq1EsoMV2jU8C06kvoZAlHFWW06qypMvHt5cSrZA68OvPJCFAwsqDtKhDuJkxpZBLzaqQRZBZCVVcqpWEGsw9bIDLlttGCcQbFw5Ytvtx4NAPo5mmZBcpT8CrRoTxEz6J0QsmfhqIBDSJhTEoCotfEZARhnZCQqxd3JiwvBVyRtghYG2j9xZBI4lq5h8"}, function(response) {
       console.log('Successful login for: ' + JSON.stringify(response.data));
       $scope.dados = response;
       
