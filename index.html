@@ -20,6 +20,12 @@
   the FB.login() function when clicked.
 -->
 
+<ul>
+  <li ng-repeat="d in dados.feed">
+    {{d}}
+  </li>
+</ul>
+
 <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button>
 
@@ -30,7 +36,7 @@
 <button ng-Click="func()">click</button>
 
 
-dado = {{dados.feed.data}}
+dados = {{dados.feed.data[0].message}}
 <script>
   var app = angular.module("myApp",[]);
 
