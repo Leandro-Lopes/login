@@ -28,6 +28,9 @@
 <div id="status2">
 </div>
 <button ng-Click="func()">click</button>
+<ul>
+  <li ng-controller="x in dados.feed.data">{{x.message}}</li>
+</ul>
 
 dados = {{dados.feed.data}}
 <script>
