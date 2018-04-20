@@ -29,7 +29,7 @@
 </div>
 <button ng-Click="func()">click</button>
 <ul>
-  <li ng-repeat="x in dados">{{x}}</li>
+  <li ng-repeat="x in data">{{x}}</li>
 </ul>
 dados = {{dados}}
 <script>
@@ -41,7 +41,7 @@ $scope.func = function(){
       console.log('Welcome!  Fetching your information.... ');
     FB.api('/me',{ fields: 'context',access_token : "EAACEdEose0cBAOQHZBgJZBPKDDqjJLD7QP6ZBaLbG2T2HZCakZCENl66b3L79Mf4fGZA5fY9su24e2QmPnAL4a1h9w0HfflkCXDdb1Yr8RrhJaDGXio0yHG92jx0f7yfFempLcWcvtoz1MAlG5In79ZBcggDosF5j9mBAM2m4VqbDNlknt9r6Wo4GvH4iScV24ZD"}, function(response) {
       console.log('Successful login for: ' + JSON.stringify(response));
-      $scope.dados = JSON.stringify(response.data);
+      $scope.dados = JSON.stringify(response);
       
     });
 }
