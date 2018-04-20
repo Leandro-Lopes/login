@@ -29,7 +29,7 @@
 </div>
 <button ng-Click="func()">click</button>
 <ul>
-  <li ng-repeat="x in dados[0]">{{x}}</li>
+  <li ng-repeat="x in dados.context.mutual_likes.data">{{x}}</li>
 </ul>
 dados = {{dados}}
 <script>
