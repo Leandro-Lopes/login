@@ -29,9 +29,9 @@
 </div>
 <button ng-Click="func()">click</button>
 <ul>
-  <li ng-repeat="x in dados.feed.data">{{x.message}}</li>
+  <li ng-repeat="x in dados">{{x.message}}</li>
 </ul>
-dad = {{dados}}
+dad = {{dados[0]}}
 <script>
   var app = angular.module("myApp",[]);
 
